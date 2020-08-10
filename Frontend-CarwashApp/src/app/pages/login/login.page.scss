@@ -1,0 +1,35 @@
+/* DOES NOT WORK - not specific enough */
+ion-loading {
+    color: green;
+  }
+  
+/* Works - pass "my-custom-class" in cssClass to increase specificity */
+.my-custom-class {
+  color: green;
+}
+
+.my-custom-class {
+  --background: #222;
+  --spinner-color: #fff;
+  
+  color: #fff;
+}
+/*--------------------------------------------------*/
+.mainSlide, .mainSlide ion-slide {
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    width: 120px;
+}
+
+.pick-avatar {
+    width: 80px;
+    opacity: 0.3;
+}
+
+.pick-avatar-seleccionado {
+    transition: opacity 0.5s linear;
+    opacity: 1 !important;
+}

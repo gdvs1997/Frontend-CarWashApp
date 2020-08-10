@@ -1,0 +1,8 @@
+{
+  "name": "Frontend-CarwashApp",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
