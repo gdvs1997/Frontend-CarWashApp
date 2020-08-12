@@ -5,7 +5,7 @@
     
     <ion-slide>
 
-      <form (ngSubmit)="presentLoading( fLogin )" #fLogin="ngForm">
+      <form (ngSubmit)="login( fLogin )" #fLogin="ngForm">
         <ion-grid fixed>
 
           <ion-row>
@@ -21,12 +21,12 @@
                   
                   <ion-item>
                     <ion-label>Usuario: </ion-label>
-                    <ion-input name="user" type="email" required></ion-input>
+                    <ion-input name="userName" type="email" [(ngModel)]="loginUser.userName" required></ion-input>
                   </ion-item>
 
                   <ion-item>
                     <ion-label>Contraseña: </ion-label>
-                    <ion-input name="password" type="password" required></ion-input>
+                    <ion-input name="password" type="password" [(ngModel)]="loginUser.password" required></ion-input>
                   </ion-item>
 
                 </ion-list>

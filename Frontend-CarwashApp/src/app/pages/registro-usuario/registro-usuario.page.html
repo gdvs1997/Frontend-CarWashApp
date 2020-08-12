@@ -1,9 +1,18 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>RegistroUsuario</ion-title>
+    <ion-title>
+      Registro de Usuario
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Registro de Usuario</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
+  <app-explore-container name="Registro de Usuario page"></app-explore-container>
 </ion-content>
+
