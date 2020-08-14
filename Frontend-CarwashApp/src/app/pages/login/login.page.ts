@@ -14,8 +14,8 @@ export class LoginPage implements OnInit {
   @ViewChild('slidePrincipal') slides: IonSlides;
 
   loginUser = {
-    userName: 'admin@admin.com',
-    password: 'Admin2020.'
+    UserName: 'admin',
+    Password: 'Admin.2020'
   };
 
   constructor( public loadingController: LoadingController, private navCtrl: NavController, private usuarioService: UsuarioService ) { }
@@ -28,14 +28,16 @@ export class LoginPage implements OnInit {
 
     //console.log( fLogin.valid );
     //console.log( this.loginUser );
-    const valido = await this.usuarioService.login( this.loginUser.userName, this.loginUser.password );
+    const valido = await this.usuarioService.login( this.loginUser.UserName, this.loginUser.Password );
     //this.router.navigate(['inicio']);
 
     if( valido ) {
       //navegar al inicio
       this.navCtrl.navigateRoot( '/home/tabs/tab1', { animated: true } );
+      console.log('entro');
     } else {
       //mostrar alerta de usuario y contrase;a no correctos
+      console.log('no entro');
     }
   }
 

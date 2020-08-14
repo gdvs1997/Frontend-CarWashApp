@@ -10,15 +10,30 @@ const routes: Routes = [
     children: [
       {
         path: 'tab1',
-        loadChildren: '../inicio/inicio.module#InicioPageModule'
+        children: [
+          {
+            path: '',
+            loadChildren: '../inicio/inicio.module#InicioPageModule'
+          }
+        ]
       },
       {
         path: 'tab2',
-        loadChildren: '../registro-usuario/registro-usuario.module#RegistroUsuarioPageModule'
+        children: [
+          {
+            path: '',
+            loadChildren: '../registro-usuario/registro-usuario.module#RegistroUsuarioPageModule'
+          }
+        ]
       },
       {
         path: 'tab3',
-        loadChildren: '../usuario/usuario.module#UsuarioPageModule'
+        children: [
+          {
+            path: '',
+            loadChildren: '../usuario/usuario.module#UsuarioPageModule'
+          }
+        ]
       },
       {
         path: '',

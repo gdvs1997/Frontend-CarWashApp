@@ -14,24 +14,25 @@ export class UsuarioService {
 
   constructor( private http: HttpClient , private storage: Storage ) { }
 
-  login ( email: string, password: string ) {
-    const data = { email, password };
+  login ( UserName: string, Password: string ) {
+    const data = { UserName, Password };
 
     return new Promise( resolve =>{
 
-      this.http.post(`${ URL }/cuentas/login`, data)
+      this.http.post(`${ URL }/login/login`, data)
       .subscribe( resp => {
         console.log(resp);
 
-        if( resp['token'] == null ){
+        if( resp['ok'] ){
+          console.log('Credenciales correctas..')
+          this.guardarToken( resp['token'] );
+          resolve(true);
+          
+        } else {
           console.log('Credenciales incorrectas..')
           this.token = null;
           this.storage.clear();
           resolve(false);
-        } else {
-          console.log('Credenciales correctas..')
-          this.guardarToken( resp['token'] );
-          resolve(true);
         }
       });
 
