@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { HomePage } from './home.page';
 
 const routes: Routes = [
@@ -13,7 +12,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../inicio/inicio.module#InicioPageModule'
+            loadChildren: () => import('../inicio/inicio.module').then( m => m.InicioPageModule)
           }
         ]
       },
@@ -22,7 +21,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../registro-usuario/registro-usuario.module#RegistroUsuarioPageModule'
+            loadChildren: () => import('../registro-usuario/registro-usuario.module').then( m => m.RegistroUsuarioPageModule)
           }
         ]
       },
@@ -31,7 +30,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../usuario/usuario.module#UsuarioPageModule'
+            loadChildren: () => import('../usuario/usuario.module').then( m => m.UsuarioPageModule)
           }
         ]
       },
@@ -50,7 +49,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    RouterModule.forChild(routes)
+  ],
   exports: [RouterModule],
 })
 export class HomePageRoutingModule {}

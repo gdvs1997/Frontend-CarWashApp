@@ -24,12 +24,12 @@ export class UsuarioService {
         console.log(resp);
 
         if( resp['ok'] ){
-          console.log('Credenciales correctas..')
+         // console.log('Credenciales correctas..')
           this.guardarToken( resp['token'] );
           resolve(true);
           
         } else {
-          console.log('Credenciales incorrectas..')
+          //console.log('Credenciales incorrectas..')
           this.token = null;
           this.storage.clear();
           resolve(false);

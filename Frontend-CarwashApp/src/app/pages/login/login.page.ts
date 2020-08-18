@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { LoadingController, IonSlides, NavController } from '@ionic/angular';
+import { IonSlides, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../../services/usuario.service';
+import { UiServiceService } from '../../services/ui-service.service';
 
 @Component({
   selector: 'app-login',
@@ -18,13 +19,14 @@ export class LoginPage implements OnInit {
     Password: 'Admin.2020'
   };
 
-  constructor( public loadingController: LoadingController, private navCtrl: NavController, private usuarioService: UsuarioService ) { }
+  constructor( private navCtrl: NavController, private usuarioService: UsuarioService,
+               private uiService: UiServiceService) { }
 
   async login( fLogin: NgForm ) {
 
     if( fLogin.invalid ) { return; }
 
-    await this.spinnerLoading();
+    await this.uiService.spinnerLoading();
 
     //console.log( fLogin.valid );
     //console.log( this.loginUser );
@@ -34,10 +36,11 @@ export class LoginPage implements OnInit {
     if( valido ) {
       //navegar al inicio
       this.navCtrl.navigateRoot( '/home/tabs/tab1', { animated: true } );
-      console.log('entro');
+      //console.log('entro');
     } else {
       //mostrar alerta de usuario y contrase;a no correctos
-      console.log('no entro');
+      //console.log('no entro');
+      this.uiService.alertaInformativa('Usuario y contraseña no son correctos.')
     }
   }
 
@@ -62,18 +65,6 @@ export class LoginPage implements OnInit {
     this.slides.lockSwipes( false );
     this.slides.slideTo(0);
     this.slides.lockSwipes( true );
-  }
-
-  async spinnerLoading(){
-    const loading = await this.loadingController.create({
-      cssClass: 'my-custom-class',
-      message: 'Por Favor, espere...',
-      duration: 500
-    });
-    await loading.present();
-
-    const { role, data } = await loading.onDidDismiss();
-    //console.log('Loading dismissed!');
   }
 
 }
