@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../../services/usuario.service';
 import { UiServiceService } from '../../services/ui-service.service';
+import { Usuario } from '../../models/usuario';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,8 @@ export class LoginPage implements OnInit {
     UserName: 'admin',
     Password: 'Admin.2020'
   };
+
+  registerUser: Usuario = {}
 
   constructor( private navCtrl: NavController, private usuarioService: UsuarioService,
                private uiService: UiServiceService) { }
@@ -45,7 +48,20 @@ export class LoginPage implements OnInit {
   }
 
   async registro( fRegistro: NgForm ) {
-    console.log( fRegistro.value );
+
+    if ( fRegistro.invalid ) { return; }
+    //console.log( fRegistro.value );
+    const valido = await this.usuarioService.registro( this.registerUser );
+
+    if( valido ) {
+      //navegar al inicio
+      this.navCtrl.navigateRoot( '/home/tabs/tab1', { animated: true } );
+      //console.log('entro');
+    } else {
+      //mostrar alerta de usuario y contrase;a no correctos
+      //console.log('no entro');
+      this.uiService.alertaInformativa('Usuario y contraseña no son correctos.')
+    }
   }
 
   ionViewDidEnter() {
