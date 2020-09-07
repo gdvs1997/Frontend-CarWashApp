@@ -3,4 +3,5 @@ export interface Usuario {
     UserName?: string;
     Email?: string;
     Password?: string;
+    PhoneNumber?: string;
 }

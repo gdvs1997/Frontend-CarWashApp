@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../../services/usuario.service';
 import { UiServiceService } from '../../services/ui-service.service';
 import { Usuario } from '../../models/usuario';
+import { LoginUser } from '../../models/loginUser';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +16,7 @@ export class LoginPage implements OnInit {
   
   @ViewChild('slidePrincipal') slides: IonSlides;
 
-  loginUser = {
-    UserName: 'admin',
-    Password: 'Admin.2020'
-  };
+  loginUser: LoginUser = {};
 
   registerUser: Usuario = {}
 
@@ -36,14 +34,14 @@ export class LoginPage implements OnInit {
     const valido = await this.usuarioService.login( this.loginUser.UserName, this.loginUser.Password );
     //this.router.navigate(['inicio']);
 
-    if( valido ) {
+    if( valido['valido'] ) {
       //navegar al inicio
       this.navCtrl.navigateRoot( '/home/tabs/tab1', { animated: true } );
       //console.log('entro');
     } else {
       //mostrar alerta de usuario y contrase;a no correctos
       //console.log('no entro');
-      this.uiService.alertaInformativa('Usuario y contraseña no son correctos.')
+      this.uiService.alertaInformativa( valido['mensaje'] );
     }
   }
 

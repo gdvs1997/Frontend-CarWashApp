@@ -67,30 +67,62 @@
                     <ion-col>
                         
                         <ion-list>
-                            
+
                           <ion-item>
-                            <ion-label>Email</ion-label>
+                            <ion-label>Nombre:</ion-label>
+                            <ion-input name="nombre"
+                                        type="text"
+                                        [(ngModel)]="registerUser.UserName"
+                                        required></ion-input>
+                          </ion-item>
+
+                          <ion-item>
+                            <ion-label>Apellidos:</ion-label>
+                            <ion-input name="nombre"
+                                        type="text"
+                                        [(ngModel)]="registerUser.UserName"
+                                        required></ion-input>
+                          </ion-item>
+
+                          <ion-item>
+                            <ion-label>Usuario:</ion-label>
+                            <ion-input name="nombre"
+                                        type="text"
+                                        [(ngModel)]="registerUser.UserName"
+                                        required></ion-input>
+                          </ion-item>
+
+                          <ion-item>
+                            <ion-label>Password:</ion-label>
+                            <ion-input name="password"
+                                        type="password"
+                                        [(ngModel)]="registerUser.Password"
+                                        required></ion-input>
+                          </ion-item>
+
+                          <ion-item>
+                            <ion-label>Confirmar Password:</ion-label>
+                            <ion-input name="password"
+                                        type="password"
+                                        [(ngModel)]="registerUser.Password"
+                                        required></ion-input>
+                          </ion-item>
+
+                          <ion-item>
+                            <ion-label>Email:</ion-label>
                             <ion-input name="email" 
                                        type="email"
                                        [(ngModel)]="registerUser.Email"
                                        required></ion-input>
                           </ion-item>
-
-                            <ion-item>
-                            <ion-label>Nombre</ion-label>
-                            <ion-input name="nombre"
-                                        type="text"
-                                        [(ngModel)]="registerUser.UserName"
-                                        required></ion-input>
-                            </ion-item>
-
-                            <ion-item>
-                            <ion-label>Password</ion-label>
-                            <ion-input name="password"
-                                        type="password"
-                                        [(ngModel)]="registerUser.Password"
-                                        required></ion-input>
-                            </ion-item>
+  
+                          <ion-item>
+                            <ion-label>N° Telefono:</ion-label>
+                            <ion-input name="email" 
+                                       type="email"
+                                       [(ngModel)]="registerUser.PhoneNumber"
+                                       required></ion-input>
+                          </ion-item>
 
                         </ion-list>
                     </ion-col>

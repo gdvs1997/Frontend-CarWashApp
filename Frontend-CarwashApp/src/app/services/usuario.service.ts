@@ -3,8 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { environment } from '../../environments/environment';
 import { Usuario } from '../models/usuario';
+import { Response } from '../models/response';
 
 const URL = environment.url;
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,7 @@ const URL = environment.url;
 export class UsuarioService {
 
   token: string = null;
+  response: Response = {}
 
   constructor( private http: HttpClient , private storage: Storage ) { }
 
@@ -27,13 +30,13 @@ export class UsuarioService {
         if( resp['ok'] ){
          // console.log('Credenciales correctas..')
           this.guardarToken( resp['token'] );
-          resolve(true);
+          resolve(this.response = { valido: true, mensaje: resp['message']});
           
         } else {
           //console.log('Credenciales incorrectas..')
           this.token = null;
           this.storage.clear();
-          resolve(false);
+          resolve(this.response = { valido: false, mensaje: resp['message']});
         }
       });
 
