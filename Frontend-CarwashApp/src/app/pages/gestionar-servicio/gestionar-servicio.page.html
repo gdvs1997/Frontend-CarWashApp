@@ -1,0 +1,107 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back" routerLink="/home/tabs/tab2" defaultHref="/home/tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gestionar Servicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+    <h6>Fecha</h6>
+    <ion-item lines="none">
+      <ion-icon name="calendar-outline" slot="start"></ion-icon>
+      <ion-label>
+        <ion-datetime placeholder="23-07-2020" display-format="DD-MM-YYYY"></ion-datetime>
+      </ion-label>
+      
+    </ion-item>
+
+    <h6>Hora</h6>
+    <ion-item lines="none">
+      <ion-icon name="time-outline" slot="start"></ion-icon>
+      <ion-label>Seleccione una hora disponible</ion-label>
+        <ion-select placeholder="13:00" class="my-select" okText="OK" cancelText="Cancelar">
+          <ion-select-option value="1989">08:00</ion-select-option>
+          <ion-select-option value="1990">09:00</ion-select-option>
+          <ion-select-option value="1991">10:00</ion-select-option>
+          <ion-select-option value="1992">11:00</ion-select-option>
+          <ion-select-option value="1993">12:00</ion-select-option>
+          <ion-select-option value="1994">13:00</ion-select-option>
+          <ion-select-option value="1995">14:00</ion-select-option>
+          <ion-select-option value="1996">15:00</ion-select-option>
+          <ion-select-option value="1997">16:00</ion-select-option>
+          <ion-select-option value="1998">17:00</ion-select-option>
+          <ion-select-option value="1999">18:00</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <h6>Tipo de Vehiculo</h6>
+    <ion-item lines="none">
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      <ion-label>Seleccione un tipo de vehiculo</ion-label>
+        <ion-select placeholder="Seleccione uno" class="my-select" okText="OK" cancelText="Cancelar">
+          <ion-select-option value="1989">Turismo</ion-select-option>
+          <ion-select-option value="1990">Camioneta</ion-select-option>
+          <ion-select-option value="1991">Pick-up</ion-select-option>
+        </ion-select>
+      
+    </ion-item>
+
+    <h6>Marca</h6>
+    <ion-item lines="none">
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      <ion-label>Seleccione una Marca</ion-label>
+        <ion-select placeholder="Seleccione uno" class="my-select" okText="OK" cancelText="Cancelar">
+          <ion-select-option value="1989">Toyota</ion-select-option>
+          <ion-select-option value="1990">Ford</ion-select-option>
+          <ion-select-option value="1991">Mazda</ion-select-option>
+        </ion-select>
+      
+    </ion-item>
+
+    <h6>Modelo</h6>
+    <ion-item lines="none">
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      <ion-label>Seleccione un tipo de vehiculo</ion-label>
+        <ion-select placeholder="Seleccione uno" class="my-select" okText="OK" cancelText="Cancelar">
+          <ion-select-option value="1989">Corrolla S</ion-select-option>
+          <ion-select-option value="1990">Corrolla SE</ion-select-option>
+          <ion-select-option value="1991">Yaris</ion-select-option>
+        </ion-select>
+      
+    </ion-item>
+
+    <h6>Observaciones</h6>
+    <ion-item lines="none">
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      <ion-label>
+        <ion-input placeholder="Color, año, daño y etc."></ion-input>
+      </ion-label>
+    </ion-item>
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    
+    <ion-row>
+
+      <ion-col>
+          <ion-button shape="round"
+                      expand="full"
+                      size="small"
+                      fill="outline"
+                      color="secondary"
+                      routerLink="/home/tabs/tab2">
+            Reservar Cita
+          </ion-button>
+      </ion-col>
+
+    </ion-row>
+
+
+
+  </ion-toolbar>
+</ion-footer>

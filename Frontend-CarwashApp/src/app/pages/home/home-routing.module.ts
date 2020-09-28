@@ -21,12 +21,30 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('../registro-usuario/registro-usuario.module').then( m => m.RegistroUsuarioPageModule)
+            
+            loadChildren: () => import('../buscar-carwash/buscar-carwash.module').then( m => m.BuscarCarwashPageModule)
+          },
+          {
+            path: 'details',
+            loadChildren: () => import('../details/details.module').then( m => m.DetailsPageModule)
+          },
+          {
+            path: 'gestionar',
+            loadChildren: () => import('../gestionar-servicio/gestionar-servicio.module').then( m => m.GestionarServicioPageModule)
           }
         ]
       },
       {
         path: 'tab3',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../registro-usuario/registro-usuario.module').then( m => m.RegistroUsuarioPageModule)
+          }
+        ]
+      },
+      {
+        path: 'tab4',
         children: [
           {
             path: '',

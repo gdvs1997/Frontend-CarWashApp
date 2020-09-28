@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { element } from 'protractor';
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.page.html',
-  styleUrls: ['./inicio.page.scss'],
+  selector: 'app-buscar-carwash',
+  templateUrl: './buscar-carwash.page.html',
+  styleUrls: ['./buscar-carwash.page.scss'],
 })
-export class InicioPage implements OnInit {
+export class BuscarCarwashPage implements OnInit {
 
   empresas: any[] = [
     {
